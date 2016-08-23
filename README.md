@@ -1,7 +1,3 @@
-# Docker Cheat Sheet
-
-**想要一起来完善这份速查表吗？请看[贡献手册](#contributing)部分！**
-
 ## 目录
 
 * [为何使用 Docker](#为何使用-docker)
