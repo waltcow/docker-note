@@ -71,3 +71,17 @@ root@af8bae53bdd3:/#
 - 从地址池配置一个 ip 地址给容器
 - 执行用户指定的应用程序
 - 执行完毕后容器被终止
+
+## 如何进入正在执行的 docker container 
+docker1.3增加新的exec命令行工具，进入container更加方便，简单说命令是：“docker exec -i -t bash”
+```
+$ docker run -i -t -d ubuntu bash
+740e78a3406f72db08973c2db6c2e60286504135d48ab5d431b706a342b051bd
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+740e78a3406f        ubuntu:14.04        "bash"              4 seconds ago       Up 3 seconds                            cocky_pike
+$ docker exec -i -t 740e78a3406f bash
+root@740e78a3406f:$ ls
+```
+
+
