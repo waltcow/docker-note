@@ -87,11 +87,11 @@ docker run hello-world
 
 ### 生命周期
 
-* [`docker create`](https://docs.docker.com/reference/commandline/create) 创建一个容器但是不启动。
-* [`docker rename`](https://docs.docker.com/engine/reference/commandline/rename/) 允许重命名容器。
-* [`docker run`](https://docs.docker.com/reference/commandline/run) 在同一个操作中创建并启动一个容器。
-* [`docker rm`](https://docs.docker.com/reference/commandline/rm) 删除容器。
-* [`docker update`](https://docs.docker.com/engine/reference/commandline/update/) 更新容器的资源限制。
+* `docker create` (https://docs.docker.com/reference/commandline/create) 创建一个容器但是不启动。
+* `docker rename` (https://docs.docker.com/engine/reference/commandline/rename/) 允许重命名容器。
+* `docker run` (https://docs.docker.com/reference/commandline/run) 在同一个操作中创建并启动一个容器。
+* `docker rm` (https://docs.docker.com/reference/commandline/rm) 删除容器。
+* `docker update` (https://docs.docker.com/engine/reference/commandline/update/) 更新容器的资源限制。
 
 如果你想要一个临时容器，`docker run --rm` 会在容器停止之后删除它。
 
@@ -103,14 +103,14 @@ docker run hello-world
 
 ### 启动和停止
 
-* [`docker start`](https://docs.docker.com/reference/commandline/start) 启动容器。
-* [`docker stop`](https://docs.docker.com/reference/commandline/stop) 停止运行中的容器。
-* [`docker restart`](https://docs.docker.com/reference/commandline/restart) 停止之后再启动容器。
-* [`docker pause`](https://docs.docker.com/engine/reference/commandline/pause/) 暂停运行中的容器，将其 "冻结" 在当前状态。
-* [`docker unpause`](https://docs.docker.com/engine/reference/commandline/unpause/) 结束容器暂停状态。
-* [`docker wait`](https://docs.docker.com/reference/commandline/wait) 阻塞，到运行中的容器停止为止。
-* [`docker kill`](https://docs.docker.com/reference/commandline/kill) 向运行中容器发送 SIGKILL 指令。
-* [`docker attach`](https://docs.docker.com/reference/commandline/attach) 链接到运行中容器。
+* `docker start` (https://docs.docker.com/reference/commandline/start) 启动容器。
+* `docker stop` (https://docs.docker.com/reference/commandline/stop) 停止运行中的容器。
+* `docker restart` (https://docs.docker.com/reference/commandline/restart) 停止之后再启动容器。
+* `docker pause` (https://docs.docker.com/engine/reference/commandline/pause/) 暂停运行中的容器，将其 "冻结" 在当前状态。
+* `docker unpause` (https://docs.docker.com/engine/reference/commandline/unpause/) 结束容器暂停状态。
+* `docker wait` (https://docs.docker.com/reference/commandline/wait) 阻塞，到运行中的容器停止为止。
+* `docker kill` (https://docs.docker.com/reference/commandline/kill) 向运行中容器发送 SIGKILL 指令。
+* `docker attach` (https://docs.docker.com/reference/commandline/attach) 链接到运行中容器。
 
 如果你想整合容器到[宿主进程管理(host process manager)](https://docs.docker.com/articles/host_integration/)，那么以 `-r=false` 启动守护进程(daemon)然后使用 `docker start -a`。
 
@@ -120,14 +120,14 @@ docker run hello-world
 
 ### 信息
 
-* [`docker ps`](https://docs.docker.com/reference/commandline/ps) 查看运行中的所有容器。
-* [`docker logs`](https://docs.docker.com/reference/commandline/logs) 从容器中获取日志。(你也可以使用自定义日志驱动，不过在 1.10 中，它只支持 `json-file` 和 `journald`)
-* [`docker inspect`](https://docs.docker.com/reference/commandline/inspect) 查看某个容器的所有信息(包括 IP 地址)。
-* [`docker events`](https://docs.docker.com/reference/commandline/events) 从容器中获取事件(events)。
-* [`docker port`](https://docs.docker.com/reference/commandline/port) 查看容器的公开端口。
-* [`docker top`](https://docs.docker.com/reference/commandline/top) 查看容器中活动进程。
-* [`docker stats`](https://docs.docker.com/reference/commandline/stats) 查看容器的资源使用情况统计信息。
-* [`docker diff`](https://docs.docker.com/reference/commandline/diff) 查看容器的 FS 中有变化文件信息。
+* `docker ps` (https://docs.docker.com/reference/commandline/ps) 查看运行中的所有容器。
+* `docker logs` (https://docs.docker.com/reference/commandline/logs) 从容器中获取日志。(你也可以使用自定义日志驱动，不过在 1.10 中，它只支持 `json-file` 和 `journald`)
+* `docker inspect` (https://docs.docker.com/reference/commandline/inspect) 查看某个容器的所有信息(包括 IP 地址)。
+* `docker events` (https://docs.docker.com/reference/commandline/events) 从容器中获取事件(events)。
+* `docker port` (https://docs.docker.com/reference/commandline/port) 查看容器的公开端口。
+* `docker top` (https://docs.docker.com/reference/commandline/top) 查看容器中活动进程。
+* `docker stats` (https://docs.docker.com/reference/commandline/stats) 查看容器的资源使用情况统计信息。
+* `docker diff` (https://docs.docker.com/reference/commandline/diff) 查看容器的 FS 中有变化文件信息。
 
 `docker ps -a` 查看所有容器，包括正在运行的和已停止的。
 
@@ -135,12 +135,12 @@ docker run hello-world
 
 ### 导入 / 导出
 
-* [`docker cp`](https://docs.docker.com/reference/commandline/cp) 在容器和本地文件系统之间复制文件或文件夹。
-* [`docker export`](https://docs.docker.com/reference/commandline/export) 将容器的文件系统切换为压缩包(tarball archive stream)输出到 STDOUT。
+* `docker cp` (https://docs.docker.com/reference/commandline/cp) 在容器和本地文件系统之间复制文件或文件夹。
+* `docker export` (https://docs.docker.com/reference/commandline/export) 将容器的文件系统切换为压缩包(tarball archive stream)输出到 STDOUT。
 
 ### 执行命令
 
-* [`docker exec`](https://docs.docker.com/reference/commandline/exec) 在容器中执行命令。
+* `docker exec` (https://docs.docker.com/reference/commandline/exec) 在容器中执行命令。
 
 比如，进入正在运行的容器，在名为 foo 的容器中打开一个新的 shell 进程: `docker exec -it foo /bin/bash`.
 
@@ -150,18 +150,18 @@ docker run hello-world
 
 ### 生命周期
 
-* [`docker images`](https://docs.docker.com/reference/commandline/images) 查看所有镜像。
-* [`docker import`](https://docs.docker.com/reference/commandline/import) 从压缩文件中创建镜像。
-* [`docker build`](https://docs.docker.com/reference/commandline/build) 从 Dockerfile 创建镜像。
-* [`docker commit`](https://docs.docker.com/reference/commandline/commit) 为容器创建镜像，如果容器正在运行则会临时暂停。
-* [`docker rmi`](https://docs.docker.com/reference/commandline/rmi) 删除镜像。
-* [`docker load`](https://docs.docker.com/reference/commandline/load) 通过 STDIN 从压缩包加载镜像，包括镜像和标签(images and tags) (0.7 起).
-* [`docker save`](https://docs.docker.com/reference/commandline/save) 通过 STDOUT 保存镜像到压缩包，包括所有的父层，标签和版本(parent layers, tags & versions) (0.7 起).
+* `docker images` (https://docs.docker.com/reference/commandline/images) 查看所有镜像。
+* `docker import` (https://docs.docker.com/reference/commandline/import) 从压缩文件中创建镜像。
+* `docker build` (https://docs.docker.com/reference/commandline/build) 从 Dockerfile 创建镜像。
+* `docker commit` (https://docs.docker.com/reference/commandline/commit) 为容器创建镜像，如果容器正在运行则会临时暂停。
+* `docker rmi` (https://docs.docker.com/reference/commandline/rmi) 删除镜像。
+* `docker load` (https://docs.docker.com/reference/commandline/load) 通过 STDIN 从压缩包加载镜像，包括镜像和标签(images and tags) (0.7 起).
+* `docker save` (https://docs.docker.com/reference/commandline/save) 通过 STDOUT 保存镜像到压缩包，包括所有的父层，标签和版本(parent layers, tags & versions) (0.7 起).
 
 ### 信息
 
-* [`docker history`](https://docs.docker.com/reference/commandline/history) 查看镜像历史记录。
-* [`docker tag`](https://docs.docker.com/reference/commandline/tag) 给镜像命名打标(tags) (本地或者仓库)。
+* `docker history` (https://docs.docker.com/reference/commandline/history) 查看镜像历史记录。
+* `docker tag` (https://docs.docker.com/reference/commandline/tag) 给镜像命名打标(tags) (本地或者仓库)。
 
 ### 清理
 
@@ -201,18 +201,18 @@ Docker 有[网络(networks)](https://docs.docker.com/engine/userguide/networking
 
 ### 生命周期
 
-* [`docker network create`](https://docs.docker.com/engine/reference/commandline/network_create/)
-* [`docker network rm`](https://docs.docker.com/engine/reference/commandline/network_rm/)
+* `docker network create` (https://docs.docker.com/engine/reference/commandline/network_create/)
+* `docker network rm` (https://docs.docker.com/engine/reference/commandline/network_rm/)
 
 ### 信息
 
-* [`docker network ls`](https://docs.docker.com/engine/reference/commandline/network_ls/)
-* [`docker network inspect`](https://docs.docker.com/engine/reference/commandline/network_inspect/)
+* `docker network ls` (https://docs.docker.com/engine/reference/commandline/network_ls/)
+* `docker network inspect` (https://docs.docker.com/engine/reference/commandline/network_inspect/)
 
 ### 链接
 
-* [`docker network connect`](https://docs.docker.com/engine/reference/commandline/network_connect/)
-* [`docker network disconnect`](https://docs.docker.com/engine/reference/commandline/network_disconnect/)
+* `docker network connect` (https://docs.docker.com/engine/reference/commandline/network_connect/)
+* `docker network disconnect` (https://docs.docker.com/engine/reference/commandline/network_disconnect/)
 
 你可以为[容器指定 IP 地址](https://blog.jessfraz.com/post/ips-for-all-the-things/):
 
@@ -235,11 +235,11 @@ $ curl 203.0.113.2
 
 Docker.com 把它自己的[索引](https://hub.docker.com/)托管到了它的仓管中心，那里有数量众多的仓库。不过话虽如此，这个仓管中心[并没有很好的验证镜像](https://titanous.com/posts/docker-insecurity)，所以如果你很担心安全问题的话，请尽量避免使用它。
 
-* [`docker login`](https://docs.docker.com/reference/commandline/login) 登入仓管中心。
-* [`docker logout`](https://docs.docker.com/reference/commandline/logout) 登出仓管中心。
-* [`docker search`](https://docs.docker.com/reference/commandline/search) 从仓管中心检索镜像。
-* [`docker pull`](https://docs.docker.com/reference/commandline/pull) 从仓管中心拉去镜像到本地。
-* [`docker push`](https://docs.docker.com/reference/commandline/push) 从本地推送镜像到仓管中心。
+* `docker login` (https://docs.docker.com/reference/commandline/login) 登入仓管中心。
+* `docker logout` (https://docs.docker.com/reference/commandline/logout) 登出仓管中心。
+* `docker search` (https://docs.docker.com/reference/commandline/search) 从仓管中心检索镜像。
+* `docker pull` (https://docs.docker.com/reference/commandline/pull) 从仓管中心拉去镜像到本地。
+* `docker push` (https://docs.docker.com/reference/commandline/push) 从本地推送镜像到仓管中心。
 
 ### 本地仓管中心
 
@@ -334,13 +334,13 @@ Docker 的卷标(volumes)是一个[free-floating 文件系统](https://docs.dock
 
 ### 生命周期
 
-* [`docker volume create`](https://docs.docker.com/engine/reference/commandline/volume_create/)
-* [`docker volume rm`](https://docs.docker.com/engine/reference/commandline/volume_rm/)
+* `docker volume create` (https://docs.docker.com/engine/reference/commandline/volume_create/)
+* `docker volume rm` (https://docs.docker.com/engine/reference/commandline/volume_rm/)
 
 ### 信息
 
-* [`docker volume ls`](https://docs.docker.com/engine/reference/commandline/volume_ls/)
-* [`docker volume inspect`](https://docs.docker.com/engine/reference/commandline/volume_inspect/)
+* `docker volume ls` (https://docs.docker.com/engine/reference/commandline/volume_ls/)
+* `docker volume inspect` (https://docs.docker.com/engine/reference/commandline/volume_inspect/)
 
 卷标在不能使用链接(只有 TCP/IP )的情况下非常有用。例如，如果你有两个 docker 实例需要通讯并在文件系统上留下记录。
 
