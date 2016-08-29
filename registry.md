@@ -1,52 +1,52 @@
-## °²×° Docker 
-ÏµÍ³µÄÒªÇó¸ú Ubuntu Çé¿öÀàËÆ£¬64 Î»²Ù×÷ÏµÍ³£¬ÄÚºË°æ±¾ÖÁÉÙÎª 3.10¡£
+## å®‰è£… Docker 
+ç³»ç»Ÿçš„è¦æ±‚è·Ÿ Ubuntu æƒ…å†µç±»ä¼¼ï¼Œ64 ä½æ“ä½œç³»ç»Ÿï¼Œå†…æ ¸ç‰ˆæœ¬è‡³å°‘ä¸º 3.10ã€‚
 ```
 sudo curl -sSL https://get.docker.com/ | sh
 ```
 
-##  °²×°Docker compose 
+##  å®‰è£…Docker compose 
 ```
 curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
-## °²×° opensslÓëhttpd-tools
-opensslÓÃÓÚÉú³ÉÖ¤Êé, httpd-toolsÓÃÓÚÉú³ÉÈÏÖ¤ÕËºÅºÍÃÜÂë
+## å®‰è£… opensslä¸httpd-tools
+opensslç”¨äºç”Ÿæˆè¯ä¹¦, httpd-toolsç”¨äºç”Ÿæˆè®¤è¯è´¦å·å’Œå¯†ç 
 ```
 yum install -y openssl openssl-devel httpd-tools
 ```
 
-## Ö¤ÊéÉú³É²½Öè
+## è¯ä¹¦ç”Ÿæˆæ­¥éª¤
 
-1. ´´½¨Ö¤Êé´æ·ÅÄ¿Â¼
+1. åˆ›å»ºè¯ä¹¦å­˜æ”¾ç›®å½•
 ```
   mkdir -p /docker-registry-compose/certs
 ```
-2. Éú³ÉÖ¤ÊéÃÜÔ¿
+2. ç”Ÿæˆè¯ä¹¦å¯†é’¥
 ```
 openssl req -nodes -subj "/C=CN/ST=GuangDong/L=GuangZhou/CN=docker.rd.mt" -newkey rsa:4096 -keyout docker-registry.key -out docker-registry.csr
 ```
-3. Éú³ÉÖ¤Êé
+3. ç”Ÿæˆè¯ä¹¦
 ```
 openssl x509 -req -days 3650 -in docker-registry.csr -signkey docker-registry.key -out docker-registry.crt
 ```
-4. µ¼ÈëÖ¤Êé
+4. å¯¼å…¥è¯ä¹¦
 ```
 mkdir /etc/docker/certs.d/docker.rd.mt
 cp docker-registry.crt /etc/docker/certs.d/docker.rd.mt/ca.crt
 ```
-5. ÖØÆôdocker
+5. é‡å¯docker
 ```
 service restart docker
 ```
-6. Éú³Éhttp password
+6. ç”Ÿæˆhttp password
 ```
 htpasswd -cb httppwd admin admin
-(ÕËºÅÃû£ºadmin ÃÜÂë£ºadmin)¸ÃÕËºÅÓÃÓÚµÇÂ½Docker-Registry
+(è´¦å·åï¼šadmin å¯†ç ï¼šadmin)è¯¥è´¦å·ç”¨äºç™»é™†Docker-Registry
 ```
 
-## Æô¶¯Ïà¹ØÈİÆ÷
-µ±Ç°Ä¿Â¼ĞÅÏ¢
+## å¯åŠ¨ç›¸å…³å®¹å™¨
+å½“å‰ç›®å½•ä¿¡æ¯
 ```
  [root@localhost docker-registry-compose]# ll
    total 8
@@ -56,12 +56,11 @@ htpasswd -cb httppwd admin admin
    -rw-r--r--. 1 root root  44 Aug 29 00:04 httppwd
 
 ```
-ÔÚ/docker-registry-compose/ Ä¿Â¼ÏÂĞÂ½¨ docker-compose.ymlÎÄ¼ş£¬
+åœ¨/docker-registry-compose/ ç›®å½•ä¸‹æ–°å»º docker-compose.ymlæ–‡ä»¶ï¼Œ
 
 ```
    
 docker-registry:
-  container_name: mt-registry
   container_name: mt-registry
   image: registry:2
   ports:
@@ -85,35 +84,25 @@ docker-registry-proxy:
     - ./certs:/etc/nginx/ssl:ro
 
 ```
-Æô¶¯ÈİÆ÷
+å¯åŠ¨å®¹å™¨
 ```
   docker-compose up -d
 ```
 
-## ²âÊÔ
-1. µÇÂ¼registry
+## æµ‹è¯•
+
+1. ç™»å½•registry
+ç™»å½•å‰éœ€æŠŠcertsä¸‹çš„docker-registry.crt æ‹·è´åˆ°clientå¯¹åº”ç›®å½•ä¸‹ï¼Œå†é‡å¯docker
+```
+mkdir /etc/docker/certs.d/docker.rd.mt
+cp docker-registry.crt /etc/docker/certs.d/docker.rd.mt/ca.crt
 ```
 docker login -u admin -p admin docker.rd.mt
 ```
- ÏÔÊ¾Login SucceededËµÃ÷ÅäÖÃ³É¹¦
+ æ˜¾ç¤ºLogin Succeededè¯´æ˜é…ç½®æˆåŠŸ
 
-2. ÍÆËÍ¾µÏñ 
+2. æ¨é€é•œåƒ 
 ```
 docker tag helloworld docker.rd.mt/helloworld
 docker push docker.rd.mt/helloworld
 ```
-
-
-
-
-
-
-
-    
- 
-
-
-
-
-
-
