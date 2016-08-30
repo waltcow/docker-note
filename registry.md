@@ -40,9 +40,10 @@ cp docker-registry.crt /etc/docker/certs.d/docker.rd.mt/ca.crt
 service restart docker
 ```
 6. 生成http password
+新建用户 账号名：admin 密码：admin  
+该账号用于登陆Docker-Registry
 ```
 htpasswd -cb httppwd admin admin
-(账号名：admin 密码：admin)该账号用于登陆Docker-Registry
 ```
 
 ## 启动相关容器
@@ -51,7 +52,6 @@ htpasswd -cb httppwd admin admin
  [root@localhost docker-registry-compose]# ll
    total 8
    drwxr-xr-x. 2 root root  84 Aug 28 23:23 certs
-   drwxr-xr-x. 3 root root  19 Aug 26 15:18 data
    -rw-r--r--. 1 root root 512 Aug 29 00:03 docker-compose.yml
    -rw-r--r--. 1 root root  44 Aug 29 00:04 httppwd
 
@@ -66,7 +66,7 @@ docker-registry:
   ports:
     - 5000:5000
   volumes:
-    - ./data:/tmp/registry-dev
+    - /data:/tmp/registry-dev
 
 docker-registry-proxy:
   container_name: mt-registry-proxy
@@ -89,13 +89,16 @@ docker-registry-proxy:
   docker-compose up -d
 ```
 
-## 测试
+## 测试  `For Linux 客户端`
 
 1. 登录registry
 登录前需把certs下的docker-registry.crt 拷贝到client对应目录下，再重启docker
 ```
-mkdir /etc/docker/certs.d/docker.rd.mt
+mkdir -p /etc/docker/certs.d/docker.rd.mt
 cp docker-registry.crt /etc/docker/certs.d/docker.rd.mt/ca.crt
+service docker restart
+```
+client登录
 ```
 docker login -u admin -p admin docker.rd.mt
 ```
@@ -106,3 +109,22 @@ docker login -u admin -p admin docker.rd.mt
 docker tag helloworld docker.rd.mt/helloworld
 docker push docker.rd.mt/helloworld
 ```
+
+## 测试  `For Mac版客户端`
+
+1. 进入Mac的Docker所在虚拟机
+终端如下命令
+```
+screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
+```
+进入Moby Linux虚拟机命令行登录界面
+在moby login:后，直接输入root回车，则可登录到docker所在的虚拟机；
+2. 添加CA证书
+把.crt证书放到docker所在虚拟机的共享目录中（该目录可通过Mac顶栏Docker图标右击菜单>Preferences 设置对话框中，选择File Sharing页签，可以查看编辑共享目录）
+并且copy到/etc/docker/certs.d/docker.rd.mt文件夹下（该文件夹需自行建立）
+3.  重启虚拟机内docker服务 
+```
+service docker restart
+```
+
+
