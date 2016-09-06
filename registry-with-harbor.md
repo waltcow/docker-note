@@ -1,36 +1,36 @@
-## °²×° Docker 
-ÏµÍ³µÄÒªÇó¸ú Ubuntu Çé¿öÀàËÆ£¬64 Î»²Ù×÷ÏµÍ³£¬ÄÚºË°æ±¾ÖÁÉÙÎª 3.10¡£
+## å®‰è£… Docker 
+ç³»ç»Ÿçš„è¦æ±‚è·Ÿ Ubuntu æƒ…å†µç±»ä¼¼ï¼Œ64 ä½æ“ä½œç³»ç»Ÿï¼Œå†…æ ¸ç‰ˆæœ¬è‡³å°‘ä¸º 3.10ã€‚
 ```
 sudo curl -sSL https://get.docker.com/ | sh
 ```
 
-##  °²×°Docker compose 
+##  å®‰è£…Docker compose 
 ```
 curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
-### ÅäÖÃ Harbor
+### é…ç½® Harbor
 ---
 
-1) ¿ËÂ¡harbor²Ö¿â
+1) å…‹éš†harborä»“åº“
 
 ```
 git clone https://github.com/vmware/harbor ~/harbor
 ```
  
-2) ±à¼­ÅäÖÃ
+2) ç¼–è¾‘é…ç½®
 
 ```
 vim ~/harbor/Deploy/harbor.cfg
 ```
-Ä£°åÈçÏÂ£º
+æ¨¡æ¿å¦‚ä¸‹ï¼š
 ```
 ## Configuration file of Harbor
 
-# ÏÂÃæÊäÈëÄãµÄ²Ö¿âÍøÖ·£¬±ÈÈç¡°reg.example.com¡±¡£
-# ²»ÒªÊ¹ÓÃ localhost »òÕß 127.0.0.1 ×÷Îª hostname£¬
-# ·ñÔò±ğÈËÎŞ·¨·ÃÎÊÕâ¸ö²Ö¿â¡£
+# ä¸‹é¢è¾“å…¥ä½ çš„ä»“åº“ç½‘å€ï¼Œæ¯”å¦‚â€œreg.example.comâ€ã€‚
+# ä¸è¦ä½¿ç”¨ localhost æˆ–è€… 127.0.0.1 ä½œä¸º hostnameï¼Œ
+# å¦åˆ™åˆ«äººæ— æ³•è®¿é—®è¿™ä¸ªä»“åº“ã€‚
 hostname = docker.rd.mt
 
 #The protocol for accessing the UI and token/notification service, by default it is http.
@@ -38,7 +38,7 @@ hostname = docker.rd.mt
 ui_url_protocol = https
 
 #Email account settings for sending out password resetting emails.
-#ÕâÀïµÄÉèÖÃ¿ÉÒÔÎŞÊÓ£¬Ö»ÓĞÃÜÂëÕÒ»Ø²Å»áÓÃµ½¡£
+#è¿™é‡Œçš„è®¾ç½®å¯ä»¥æ— è§†ï¼Œåªæœ‰å¯†ç æ‰¾å›æ‰ä¼šç”¨åˆ°ã€‚
 email_server = smtp.mydomain.com
 email_server_port = 25
 email_username = sample_admin@mydomain.com
@@ -47,7 +47,7 @@ email_from = admin <sample_admin@mydomain.com>
 email_ssl = false
 
 ## The password of Harbor admin, change this before any production use
-## ÏÂÃæÊäÈëÄãµÄ¹ÜÀíÔ±ÃÜÂë¡£
+## ä¸‹é¢è¾“å…¥ä½ çš„ç®¡ç†å‘˜å¯†ç ã€‚
 harbor_admin_password = 123456
 
 ##By default the auth mode is db_auth, i.e. the credentials are stored in a local database.
@@ -55,12 +55,12 @@ harbor_admin_password = 123456
 auth_mode = db_auth
 
 # The url for an ldap endpoint
-# ldap¿ÉÒÔ²»Ìî¡£
+# ldapå¯ä»¥ä¸å¡«ã€‚
 ldap_url = ldaps://ldap.mydomain.com
 
 #The basedn template to look up a user in LDAP and verify the user's password.
 # For AD server, uses this template
-# ÎÒµÄµÄÓòÃûÊÇ docker.rd.mt£¬ ËùÒÔÕâÀïÎÒÌî dc=rd,dc=mt:
+# æˆ‘çš„çš„åŸŸåæ˜¯ docker.rd.mtï¼Œ æ‰€ä»¥è¿™é‡Œæˆ‘å¡« dc=rd,dc=mt:
 #ldap_basedn = CN=%s,OU=Dept1,DC=mydomain,DC=com
 ldap_basedn = uid=%s,ou=people,dc=rd,dc=mt
 
@@ -68,7 +68,7 @@ ldap_basedn = uid=%s,ou=people,dc=rd,dc=mt
 db_password = root123
 
 # Turn on or off the self-registration feature
-# ÊÇ·ñ¿ª·Å×¢²á¡£
+# æ˜¯å¦å¼€æ”¾æ³¨å†Œã€‚
 self_registration = on
 
 #Determine whether the UI should use compressed js files. 
@@ -92,7 +92,7 @@ verify_remote_cert = on
 customize_crt = on
 
 # Information of your organization for certificat
-# ÓÃµ½ SSL £¬ÕâÀïÌî¸öÈËĞÅÏ¢
+# ç”¨åˆ° SSL ï¼Œè¿™é‡Œå¡«ä¸ªäººä¿¡æ¯
 crt_country = CN
 crt_state = GuangZhou
 crt_location = CN
@@ -103,7 +103,7 @@ crt_email = me@rd.mt
 #####
 ```
 
-3) °²×°×¼±¸, Éú³ÉSSLÖ¤Êé
+3) å®‰è£…å‡†å¤‡, ç”ŸæˆSSLè¯ä¹¦
 
 ```
  ./prepare
@@ -119,52 +119,52 @@ Generated configuration file: ./config/registry/root.crt
 The configuration files are ready, please use docker-compose to start the service.
 ```
 
-4) ÅäÖÃ Nginx
-¾­¹ıÉÏÒ»²½Ö®ºó£¬ config Ä¿Â¼ÏÂÈçÏÂ£¬×¢Òâ SSL Ö¤ÊéÎ»ÖÃ¡£
+4) é…ç½® Nginx
+ç»è¿‡ä¸Šä¸€æ­¥ä¹‹åï¼Œ config ç›®å½•ä¸‹å¦‚ä¸‹ï¼Œæ³¨æ„ SSL è¯ä¹¦ä½ç½®ã€‚
 ```
-©À©¤©¤ db
-©¦   ©¸©¤©¤ env
-©À©¤©¤ jobservice
-©¦   ©À©¤©¤ app.conf
-©¦   ©¸©¤©¤ env
-©À©¤©¤ nginx
-©¦   ©À©¤©¤ cert
-©¦   ©À©¤©¤ nginx.conf
-©¦   ©À©¤©¤ nginx.conf.bak
-©¦   ©¸©¤©¤ nginx.https.conf
-©À©¤©¤ registry
-©¦   ©À©¤©¤ config.yml
-©¦   ©¸©¤©¤ root.crt           ## CRT Ö¤Êé
-©¸©¤©¤ ui
-    ©À©¤©¤ app.conf
-    ©À©¤©¤ env
-    ©¸©¤©¤ private_key.pem    ## PEM Ö¤Êé
+â”œâ”€â”€ db
+â”‚   â””â”€â”€ env
+â”œâ”€â”€ jobservice
+â”‚   â”œâ”€â”€ app.conf
+â”‚   â””â”€â”€ env
+â”œâ”€â”€ nginx
+â”‚   â”œâ”€â”€ cert
+â”‚   â”œâ”€â”€ nginx.conf
+â”‚   â”œâ”€â”€ nginx.conf.bak
+â”‚   â””â”€â”€ nginx.https.conf
+â”œâ”€â”€ registry
+â”‚   â”œâ”€â”€ config.yml
+â”‚   â””â”€â”€ root.crt           ## CRT è¯ä¹¦
+â””â”€â”€ ui
+    â”œâ”€â”€ app.conf
+    â”œâ”€â”€ env
+    â””â”€â”€ private_key.pem    ## PEM è¯ä¹¦
 
 6 directories, 11 files
 ```
-½øÈë Nginx Ä¿Â¼£¬ÅäÖÃ Nginx, ÒÆ¶¯ÄãµÄÖ¤Êéµ½ cert/
+è¿›å…¥ Nginx ç›®å½•ï¼Œé…ç½® Nginx, ç§»åŠ¨ä½ çš„è¯ä¹¦åˆ° cert/
 ```
 cd ~/harbor/Deploy/config/nginx
 cp ~/harbor/Deploy/config/registry/root.crt ~/harbor/Deploy/config/nginx/cert/
 cp ~/harbor/Deploy/config/ui/private_key.pem ~/harbor/Deploy/config/nginx/cert/ 
 ```
 
-±¸·İÒ»ÏÂÔ­ÎÄ¼ş£¬Ê¹ÓÃhttpsÅäÖÃ
+å¤‡ä»½ä¸€ä¸‹åŸæ–‡ä»¶ï¼Œä½¿ç”¨httpsé…ç½®
 ```
 mv nginx.conf nginx.conf.bak && cp nginx.https.conf nginx.conf
 ```
-ĞŞ¸Ä nginx.conf£¬Òª¸ÄµÄµØ·½ºÜÉÙ£¬ÈçÏÂ
+ä¿®æ”¹ nginx.confï¼Œè¦æ”¹çš„åœ°æ–¹å¾ˆå°‘ï¼Œå¦‚ä¸‹
 
 ```
  ...
 
   server {
     listen 443 ssl;
-    # ÏÂÃæ¸Ä³ÉÄãµÄÓòÃû
+    # ä¸‹é¢æ”¹æˆä½ çš„åŸŸå
     server_name docker.rd.mt;
 
     # SSL
-    # Ê¹ÓÃ ./prepare Ö¸ÁîÉú³ÉÖ¤Êé¾ÍÕâÑùÌî¡£
+    # ä½¿ç”¨ ./prepare æŒ‡ä»¤ç”Ÿæˆè¯ä¹¦å°±è¿™æ ·å¡«ã€‚
     ssl_certificate /etc/nginx/cert/root.crt;
     ssl_certificate_key /etc/nginx/cert/private_key.pem;
 
@@ -178,10 +178,10 @@ mv nginx.conf nginx.conf.bak && cp nginx.https.conf nginx.conf
     ...
 ```
 
-ÕâÀïÊ¹ÓÃÁË 80 ¶Ë¿Ú¡¢5000 ¶Ë¿ÚÒÔ¼° 443 ¶Ë¿Ú£¬ÄãĞèÒªÈ·±£ÕâĞ©¶Ë¿ÚÃ»ÓĞÕ¼ÓÃ£¬  
-Èç¹ûÄãĞèÒªĞŞ¸Ä¶Ë¿Ú£¬Òª×¢Òâ docker-compose.yml µÄĞŞ¸Ä£¬²»ÒªÖ»ÔÚ nginx.conf ÖĞĞŞ¸Ä
+è¿™é‡Œä½¿ç”¨äº† 80 ç«¯å£ã€5000 ç«¯å£ä»¥åŠ 443 ç«¯å£ï¼Œä½ éœ€è¦ç¡®ä¿è¿™äº›ç«¯å£æ²¡æœ‰å ç”¨ï¼Œ  
+å¦‚æœä½ éœ€è¦ä¿®æ”¹ç«¯å£ï¼Œè¦æ³¨æ„ docker-compose.yml çš„ä¿®æ”¹ï¼Œä¸è¦åªåœ¨ nginx.conf ä¸­ä¿®æ”¹
 
-5) ¹¹½¨ÔËĞĞ Harbor
+5) æ„å»ºè¿è¡Œ Harbor
 ```
 $ cd ~/harbor/Deploy
 $ docker-compose up
@@ -189,28 +189,17 @@ $ docker-compose up
 
 6) docker push 
 
-µÇÂ¼Ç°Ğè°ÑcertsÏÂµÄdocker-registry.crt ¿½±´µ½client¶ÔÓ¦Ä¿Â¼ÏÂ£¬ÔÙÖØÆôdocker
-ÓÃ»§µÇÂ¼³É¹¦ºóÓÃdocker pushÃüÁîÏòHarbor ÍÆËÍÒ»¸öDocker image£º
+ç™»å½•å‰éœ€æŠŠcertsä¸‹çš„*.crt æ‹·è´åˆ°clientå¯¹åº”ç›®å½•ä¸‹ï¼Œå†é‡å¯docker
+ç”¨æˆ·ç™»å½•æˆåŠŸåç”¨docker pushå‘½ä»¤å‘Harbor æ¨é€ä¸€ä¸ªDocker imageï¼š
 docker push docker.rd.mt/library/hello-world
 
- a) Ê×ÏÈ£¬docker ¿Í»§¶Ë»áÖØ¸´loginµÄ¹ı³Ì£¬Ê×ÏÈ·¢ËÍÇëÇóµ½registry,Ö®ºóµÃµ½token ·şÎñµÄµØÖ·£»
- b) Ö®ºó£¬Docker ¿Í»§¶ËÔÚ·ÃÎÊuiÈİÆ÷ÉÏµÄtoken·şÎñÊ±»áÌá¹©¶îÍâĞÅÏ¢£¬Ö¸Ã÷ËüÒªÉêÇëÒ»¸ö¶Ôimage library/hello-world½øĞĞpush²Ù×÷µÄtoken£»
- c) token ·şÎñÔÚ¾­¹ıNginx×ª·¢µÃµ½Õâ¸öÇëÇóºó£¬»á·ÃÎÊÊı¾İ¿âºËÊµµ±Ç°ÓÃ»§ÊÇ·ñÓĞÈ¨ÏŞ¶Ô¸Ãimage½øĞĞpush¡£Èç¹ûÓĞÈ¨ÏŞ£¬Ëü»á°ÑimageµÄĞÅÏ¢ÒÔ¼°push¶¯×÷½øĞĞ±àÂë£¬²¢ÓÃË½Ô¿Ç©Ãû£¬Éú³Étoken·µ»Ø¸øDocker¿Í»§¶Ë£»
- d) µÃµ½tokenÖ®ºó Docker¿Í»§¶Ë»á°Ñtoken·ÅÔÚÇëÇóÍ·²¿£¬Ïòregistry·¢³öÇëÇó£¬ÊÔÍ¼¿ªÊ¼ÍÆËÍimage¡£ Registry ÊÕµ½ÇëÇóºó»áÓÃ¹«Ô¿½âÂëtoken²¢½øĞĞºË¶Ô£¬Ò»ÇĞ³É¹¦ºó£¬imageµÄ´«Êä¾Í¿ªÊ¼ÁË¡£
+1. é¦–å…ˆï¼Œdocker å®¢æˆ·ç«¯ä¼šé‡å¤loginçš„è¿‡ç¨‹ï¼Œé¦–å…ˆå‘é€è¯·æ±‚åˆ°registry,ä¹‹åå¾—åˆ°token æœåŠ¡çš„åœ°å€ï¼›
+2. ä¹‹åï¼ŒDocker å®¢æˆ·ç«¯åœ¨è®¿é—®uiå®¹å™¨ä¸Šçš„tokenæœåŠ¡æ—¶ä¼šæä¾›é¢å¤–ä¿¡æ¯ï¼ŒæŒ‡æ˜å®ƒè¦ç”³è¯·ä¸€ä¸ªå¯¹image library/hello-worldè¿›è¡Œpushæ“ä½œçš„tokenï¼›
+3. token æœåŠ¡åœ¨ç»è¿‡Nginxè½¬å‘å¾—åˆ°è¿™ä¸ªè¯·æ±‚åï¼Œä¼šè®¿é—®æ•°æ®åº“æ ¸å®å½“å‰ç”¨æˆ·æ˜¯å¦æœ‰æƒé™å¯¹è¯¥imageè¿›è¡Œpushã€‚å¦‚æœæœ‰æƒé™ï¼Œå®ƒä¼šæŠŠimageçš„ä¿¡æ¯ä»¥åŠpushåŠ¨ä½œè¿›è¡Œç¼–ç ï¼Œå¹¶ç”¨ç§é’¥ç­¾åï¼Œç”Ÿæˆtokenè¿”å›ç»™Dockerå®¢æˆ·ç«¯ï¼›
+4. å¾—åˆ°tokenä¹‹å Dockerå®¢æˆ·ç«¯ä¼šæŠŠtokenæ”¾åœ¨è¯·æ±‚å¤´éƒ¨ï¼Œå‘registryå‘å‡ºè¯·æ±‚ï¼Œè¯•å›¾å¼€å§‹æ¨é€imageã€‚ Registry æ”¶åˆ°è¯·æ±‚åä¼šç”¨å…¬é’¥è§£ç tokenå¹¶è¿›è¡Œæ ¸å¯¹ï¼Œä¸€åˆ‡æˆåŠŸåï¼Œimageçš„ä¼ è¾“å°±å¼€å§‹äº†ã€‚
 
 
-### ²Î¿¼ÎÄÏ×
+### å‚è€ƒæ–‡çŒ®
 > 1. [Configuring Harbor with HTTPS Access] (https://github.com/vmware/harbor/blob/master/docs/configure_https.md)
-> 2. [´î½¨ Docker Registry(V2)](https://zuolan.me/p/build-docker-registry.html)
-> 3. [ÆóÒµ¼¶Registry¿ªÔ´ÏîÄ¿Harbor¼Ü¹¹¼ò½é](http://dockone.io/article/1179)
-
-
-
-
-
-
-
-
- 
- 
- 
+> 2. [æ­å»º Docker Registry(V2)](https://zuolan.me/p/build-docker-registry.html)
+> 3. [ä¼ä¸šçº§Registryå¼€æºé¡¹ç›®Harboræ¶æ„ç®€ä»‹](http://dockone.io/article/1179)
