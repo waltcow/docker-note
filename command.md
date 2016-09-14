@@ -84,4 +84,22 @@ $ docker exec -i -t 740e78a3406f bash
 root@740e78a3406f:$ ls
 ```
 
+## 使用squid加快docker rebuild的速度, 避免每次都要重新下载package
+```
+# get squid
+docker run --name squid -d --restart=always \
+  --publish 3128:3128 \
+  --volume /var/spool/squid3 \
+  sameersbn/squid:3.3.8-11
+
+# optionally in another terminal run tail on logs
+docker exec -it squid tail -f /var/log/squid3/access.log
+
+# get squid ip to use in docker build
+SQUID_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' squid)
+
+# build your instance
+docker build --build-arg http_proxy=http://$SQUID_IP:3128 .
+```
+
 
