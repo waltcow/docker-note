@@ -28,6 +28,9 @@ alias dki="docker run -i -t -P"
 # Execute interactive container, e.g., $dex base /bin/bash
 alias dex="docker exec -i -t"
 
+# Remove all untagged images
+alias drn="docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+
 # Stop all containers
 dstop() { docker stop $(docker ps -a -q); }
 
@@ -48,4 +51,5 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
 
