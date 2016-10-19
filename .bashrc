@@ -37,6 +37,9 @@ dstop() { docker stop $(docker ps -a -q); }
 # Remove all containers
 drm() { docker rm $(docker ps -a -q); }
 
+# Remove exit containers
+dre() {docker rm $(docker ps -q -f status=exited)}
+
 # Stop and Remove all containers
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
