@@ -2,10 +2,13 @@
 
 ## 源码编译安装
 
- 1. Shipyard的源码托管在 [Github](https://github.com/shipyard/shipyard) , 
-    在本地做了UI界面汉化及LDAP用户登录认证 [Gitlab](http://git.mailtech.cn/zfmai/shipyard)
- 2. Shipyard整个项目是通过go语言实现核心逻辑部分，也就是说是通过golang语言调用的Docker Remote API然后使用angular + semantic 实现的UI部分。
-    这两部分合起来构成了Shipyard 的web管理系统。
+ 1. Shipyard的源码托管在 [Github](https://github.com/shipyard/shipyard)  
+    在本地开了分支做了UI界面汉化及LDAP用户登录认证 [Gitlab](http://git.mailtech.cn/zfmai/shipyard)  
+
+ 2. Shipyard整个项目是通过go语言实现核心逻辑部分  
+    也就是说是通过shipard-controller(go实现)调用 Docker Remote API  
+    使用angular + semantic 实现的UI部分  
+    这两部分合起来构成了Shipyard 的web管理系统  
  
 ## 项目重新构建流程 
  
