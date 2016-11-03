@@ -50,7 +50,7 @@ go get github.com/tools/godep
 
 npm install bower -g
 ```
-1.5 下载源码
+1.5 下载源码  
 go开发环境在 $HOME/workspace/Go下，src是放源码的目录，下面有github, gopkg.org等目录等,在第三方网站下载的源码
 
 ```
