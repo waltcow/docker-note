@@ -29,7 +29,7 @@ alias dki="docker run -i -t -P"
 alias dex="docker exec -i -t"
 
 # Remove all untagged images
-alias drn="docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+alias drn="docker rmi $(docker images | grep "^<none>" | awk "{print $3}")"
 
 # Stop all containers
 dstop() { docker stop $(docker ps -a -q); }
