@@ -31,6 +31,9 @@ alias dex="docker exec -i -t"
 # Remove all untagged images
 alias drn="docker rmi $(docker images | grep "^<none>" | awk "{print $3}")"
 
+# Display docker container status with name instead ID
+alias ds='while true; do TEXT=$(docker stats --no-stream $(docker ps --format={{.Names}})); sleep 0.5; clear; echo "$TEXT"; done'
+
 # Stop all containers
 dstop() { docker stop $(docker ps -a -q); }
 
